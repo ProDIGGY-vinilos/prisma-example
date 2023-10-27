@@ -8,6 +8,15 @@ async function getCliente() {
     });
     console.log(allClients);
 }
+async function getCliente2() {
+    const allClients = await prisma.cliente.findUnique({
+        where: { id: '653bcd6d3abedcfb61735945' },
+        include: {
+            pedidos: true
+        }
+    });
+    console.log(allClients);
+}
 async function getPedido() {
     const allPedidos = await prisma.pedido.findMany({
         include: {
@@ -25,8 +34,8 @@ async function createClient() {
     const newClient = await prisma.cliente.create({
         data: {
             dni: 41256896,
-            nombre: 'Josue',
-            apellido: 'Scocco',
+            nombre: 'chaki',
+            apellido: 'chaleco',
             telefono: '3471-562897',
             email: 'jojtsu@gmail.com',
             direccion: 'Entre rios 123'
@@ -35,8 +44,8 @@ async function createClient() {
 }
 async function updateClient() {
     const updateClient = await prisma.cliente.update({
-        where: { id: '653b27b2533e19b78a745fe9' },
-        data: { nombre: 'Juan' },
+        where: { id: '653bcd6d3abedcfb61735945' },
+        data: { email: 'eldelchaleco@gmail.ar' },
     });
 }
 async function deleteClient() {
@@ -46,9 +55,9 @@ async function deleteClient() {
 }
 async function updateClient2() {
     const updateClient = await prisma.cliente.update({
-        where: { id: '653b27b2533e19b78a745fe9' },
+        where: { id: '653bcd6d3abedcfb61735945' },
         data: {
-            nombre: 'Juan',
+            nombre: 'Germancito',
             pedidos: {
                 createMany: {
                     data: [
@@ -62,12 +71,18 @@ async function updateClient2() {
     });
 }
 async function main() {
-    await getPedido();
-    // await createClient()
-    // await getCliente()
-    // await updateClient2()
+    //await createClient()
+    //--Este get trae todos los todos los clientes sin sus pedidos
+    //await getCliente()
+    //--Este update cambia el email del cliente
+    //await updateClient()
+    //--Este update cambia el nombre del cliente y crea un pedido
+    //await updateClient2()    
+    //--Este get trae un cliente con sus pedidos
+    //await getCliente2()
+    //--Este get trae todos los pedidos con sus productos y clientes
+    //await getPedido()
     console.log('------------------');
-    await getCliente();
 }
 main()
     .catch(async (e) => {
