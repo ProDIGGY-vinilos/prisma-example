@@ -1,46 +1,40 @@
-# prisma-example
+# Proof-of-Concept Prisma
 
 ## Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
+- [Integrantes](#integrantes)
+- [Setup](#setup)
 - [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
+- [Prisma documentation](https://www.prisma.io/docs)
+- [Docs sobre la PoC](https://docs.google.com/document/d/1cTENZ6i5wya5l31qnEf3rqBDuyELreoPG3Hk-yDR6As/edit?usp=drive_link)
+- [Presentación PowerPoint de la PoC](https://docs.google.com/presentation/d/1OuE4DnnqZbrOC8WOobfeLSqWxMgC9Ze8/edit?usp=drive_link&ouid=115812546437887960992&rtpof=true&sd=true)
 
-## About <a name = "about"></a>
+## Integrantes <a name = "integrantes"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+-Cristian Gerster -[Jose Socolsky](https://github.com/JosepSoc)
 
-## Getting Started <a name = "getting_started"></a>
+## Setup <a name = "setup"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them.
+Para instalar las dependencias del proyecto primero hacemos:
 
 ```
-Give examples
+pnpm install
 ```
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+Luego hay que generar el modelo de prisma en los modulos de node
 
 ```
-Give the example
+npx prisma generate
 ```
 
-And repeat
+El paso anterior dara un prompt para instalar prisma, se debe presionar `'y'`
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
+Recuerde antes de iniciar el proyecto crear un archivo de variables de entorno `.env` que contenga la connection string de su BD de preferencia dentro de la variable `DATABASE_URL`.
 
 ## Usage <a name = "usage"></a>
 
-Add notes about how to use the system.
+Comentamos el metodo a usar y luego iniciamos con:
+
+```
+pnpm start
+```

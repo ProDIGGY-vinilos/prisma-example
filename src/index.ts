@@ -14,7 +14,7 @@ async function getCliente() {
 
 async function getCliente2(){
     const allClients = await prisma.cliente.findUnique({
-        where: { id: '653bcd6d3abedcfb61735945' },
+        where: { id: '653bdb8fc30a573a8962bed5' },
         include: {
             pedidos: true
         }
@@ -68,7 +68,7 @@ async function deleteClient() {
 
 async function updateClient2() {
     const updateClient = await prisma.cliente.update({
-        where: { id: '653bcd6d3abedcfb61735945' },
+        where: { id: '653bdb8fc30a573a8962bed5' },
         data: {
             nombre: 'Germancito',
             pedidos: {

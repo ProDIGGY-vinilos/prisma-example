@@ -10,7 +10,7 @@ async function getCliente() {
 }
 async function getCliente2() {
     const allClients = await prisma.cliente.findUnique({
-        where: { id: '653bcd6d3abedcfb61735945' },
+        where: { id: '653bdb8fc30a573a8962bed5' },
         include: {
             pedidos: true
         }
@@ -55,7 +55,7 @@ async function deleteClient() {
 }
 async function updateClient2() {
     const updateClient = await prisma.cliente.update({
-        where: { id: '653bcd6d3abedcfb61735945' },
+        where: { id: '653bdb8fc30a573a8962bed5' },
         data: {
             nombre: 'Germancito',
             pedidos: {
@@ -79,7 +79,7 @@ async function main() {
     //--Este update cambia el nombre del cliente y crea un pedido
     //await updateClient2()    
     //--Este get trae un cliente con sus pedidos
-    //await getCliente2()
+    await getCliente2();
     //--Este get trae todos los pedidos con sus productos y clientes
     //await getPedido()
     console.log('------------------');
