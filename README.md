@@ -11,8 +11,8 @@
 
 ## Integrantes <a name = "integrantes"></a>
 
--Cristian Gerster 
--[Jose Socolsky](https://github.com/JosepSoc)
+- Cristian Gerster 
+- [Jose Socolsky](https://github.com/JosepSoc)
 
 ## Setup <a name = "setup"></a>
 
