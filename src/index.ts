@@ -3,12 +3,26 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function getCliente() {
-    const allClients = await prisma.cliente.findMany()
+    const allClients = await prisma.cliente.findMany({
+        include: {
+            pedidos: true
+        }
+    })
     console.log(allClients)
 }
 
 async function getPedido() {
-    const allPedidos = await prisma.pedido.findMany()
+    const allPedidos = await prisma.pedido.findMany({
+        include: {
+            cliente: true,
+            ProductoPedido: {
+                include: {
+                    producto: true
+                }
+            }
+        }
+
+    })
     console.log(allPedidos)
 }
 
@@ -62,7 +76,8 @@ async function main() {
     // await createClient()
     // await getCliente()
     // await updateClient2()
-    // await getCliente()
+    console.log('------------------')
+    await getCliente()
 
 }
 
